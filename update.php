@@ -16,14 +16,14 @@ function cidr_match($ip, $ranges)
 }
 
 
-if ( $_POST['payload'] && (in_array($_SERVER['REMOTE_ADDR'], $github_ips) || cidr_match($_SERVER['REMOTE_ADDR'], $github_cidrs)) ) {
+//if ( $_POST['payload'] && (in_array($_SERVER['REMOTE_ADDR'], $github_ips) || cidr_match($_SERVER['REMOTE_ADDR'], $github_cidrs)) ) {
   shell_exec( 'cd /home/charlie/charlietran.com/308clock/ && git reset --hard HEAD && git pull' );
   echo 'Done.';
-}
-else {
-  header('HTTP/1.1 404 Not Found');
-  echo '404 Not Found.';
-  exit;
-}
+//}
+//else {
+//  header('HTTP/1.1 404 Not Found');
+//  echo '404 Not Found.';
+//  exit;
+//}
  
 ?>
