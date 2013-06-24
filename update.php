@@ -23,8 +23,8 @@ set_time_limit(0);
 //  $payload = json_decode($_POST['payload']);
 //}
 //catch(Exception $e) {
-  file_put_contents('/home/charlie/charlietran.com/308clock/logs/github.txt', $e . ' ' . $payload, FILE_APPEND);
-  exit(0);
+//  file_put_contents('/home/charlie/charlietran.com/308clock/logs/github.txt', $e . ' ' . $payload, FILE_APPEND);
+//  exit(0);
 //}
 
 //if ( $_POST['payload'] && (in_array($_SERVER['REMOTE_ADDR'], $github_ips) || cidr_match($_SERVER['REMOTE_ADDR'], $github_cidrs)) ) {
