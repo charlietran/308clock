@@ -28,7 +28,7 @@ set_time_limit(0);
 //}
 
 //if ( $_POST['payload'] && (in_array($_SERVER['REMOTE_ADDR'], $github_ips) || cidr_match($_SERVER['REMOTE_ADDR'], $github_cidrs)) ) {
-    $output = shell_exec( 'cd /home/charlie/charlietran.com/308clock/ && git reset --hard HEAD && git pull' );
+    $output = shell_exec( 'cd /home/charlie/charlietran.com/308clock/ && git reset --hard HEAD 2>&1 && git pull 2>&1' );
     file_put_contents('/home/charlie/charlietran.com/308clock/logs/github.txt', $output, FILE_APPEND);
 //}
 //else {
