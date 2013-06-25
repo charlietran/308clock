@@ -1,5 +1,7 @@
 <?php
 
+$target_dir = '~/charlietran.com/308clock/';
+
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 set_time_limit(0);
@@ -23,12 +25,12 @@ try {
   $payload = json_decode($_POST['payload']);
 }
 catch(Exception $e) {
-  file_put_contents('~/charlietran.com/308clock/logs/github.txt', $e . ' ' . $payload, FILE_APPEND);
+  file_put_contents($target_dir.'logs/github.txt', $e . ' ' . $payload, FILE_APPEND);
   exit(0);
 }
 
 if ( $_POST['payload'] && (in_array($_SERVER['REMOTE_ADDR'], $github_ips) || cidr_match($_SERVER['REMOTE_ADDR'], $github_cidrs)) ) {
-  $output = shell_exec( 'cd ~/charlietran.com/308clock/ && git reset --hard HEAD 2>&1 && git pull 2>&1' );
+  $output = shell_exec( "cd $target_dir && git reset --hard HEAD 2>&1 && git pull 2>&1" );
   // file_put_contents('/home/charlie/charlietran.com/308clock/logs/github.txt', $output, FILE_APPEND);
 }
 
